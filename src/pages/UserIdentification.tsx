@@ -6,7 +6,9 @@ import {
     Text,
     TextInput,
     KeyboardAvoidingView,
+    TouchableWithoutFeedback,
     Platform,
+    Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { Button } from '../components/Button';
@@ -43,7 +45,7 @@ export function UserIdentification(){
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // teclado
             > 
-
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}> 
             <View style={styles.content}>
                 <View style={styles.form}>
                     <View style={styles.header}>
@@ -74,9 +76,8 @@ export function UserIdentification(){
                         />
                     </View>
                 </View>
-
-
             </View>
+            </TouchableWithoutFeedback>
          </KeyboardAvoidingView>
         </SafeAreaView>
     )
